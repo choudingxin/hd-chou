@@ -89,32 +89,30 @@
   }
 
   .message {
-    position: relative;
     width: 100%;
-    max-width: 22em;
-    min-height: 3.2em;
+    max-width: min(19em, 76vw);
     font-size: 20px;
     font-weight: 700;
     line-height: 1.7;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35em;
   }
 
+  /* 所有句子都在正常文档流里，绝不重叠；
+     轮到的句子被"点亮"，其余压暗，形成一波一波的节奏。 */
   .message span {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-    animation: words var(--cycle) ease-in-out infinite;
+    opacity: 0.32;
+    animation: glow var(--cycle) ease-in-out infinite;
     animation-delay: var(--delay);
   }
 
-  @keyframes words {
-    0%   { opacity: 0; }
-    2%   { opacity: 1; }
-    15%  { opacity: 1; }
-    18%  { opacity: 0; }
-    100% { opacity: 0; }
+  @keyframes glow {
+    0%   { opacity: 0.32; transform: scale(1);    }
+    3%   { opacity: 1;    transform: scale(1.03); }
+    14%  { opacity: 1;    transform: scale(1.03); }
+    17%  { opacity: 0.32; transform: scale(1);    }
+    100% { opacity: 0.32; transform: scale(1);    }
   }
 
   @media (max-width: 420px) {
@@ -132,71 +130,41 @@
 <body>
 
   <div class="dogs" aria-hidden="true">
-    <span class="slot" style="left:18.0%;top:28.7%;--size:106px;--delay:0.16s;--drift:-16px">
-      <img src="pups/pup01.webp" alt="" width="106" height="106" loading="eager" decoding="async">
+    <span class="slot" style="left:77.1%;top:83.3%;--size:128px;--delay:0.31s;--drift:-26px">
+      <img src="pups/pup01.webp" alt="" width="128" height="128" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:82.0%;top:16.0%;--size:92px;--delay:0.64s;--drift:14px">
-      <img src="pups/pup02.webp" alt="" width="92" height="92" loading="eager" decoding="async">
+    <span class="slot" style="left:77.1%;top:13.7%;--size:99px;--delay:1.02s;--drift:15px">
+      <img src="pups/pup02.webp" alt="" width="99" height="99" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:82.0%;top:25.3%;--size:96px;--delay:1.04s;--drift:20px">
-      <img src="pups/pup03.webp" alt="" width="96" height="96" loading="eager" decoding="async">
+    <span class="slot" style="left:38.6%;top:83.3%;--size:114px;--delay:1.64s;--drift:19px">
+      <img src="pups/pup03.webp" alt="" width="114" height="114" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:68.2%;top:16.0%;--size:118px;--delay:1.23s;--drift:20px">
-      <img src="pups/pup04.webp" alt="" width="118" height="118" loading="eager" decoding="async">
+    <span class="slot" style="left:61.2%;top:83.3%;--size:96px;--delay:2.49s;--drift:20px">
+      <img src="pups/pup04.webp" alt="" width="96" height="96" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:18.0%;top:16.0%;--size:99px;--delay:1.88s;--drift:23px">
-      <img src="pups/pup05.webp" alt="" width="99" height="99" loading="eager" decoding="async">
+    <span class="slot" style="left:23.2%;top:13.7%;--size:119px;--delay:3.11s;--drift:17px">
+      <img src="pups/pup05.webp" alt="" width="119" height="119" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:34.8%;top:16.0%;--size:88px;--delay:2.0s;--drift:-14px">
-      <img src="pups/pup06.webp" alt="" width="88" height="88" loading="eager" decoding="async">
+    <span class="slot" style="left:24.6%;top:83.3%;--size:116px;--delay:3.9s;--drift:-17px">
+      <img src="pups/pup06.webp" alt="" width="116" height="116" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:82.0%;top:72.2%;--size:118px;--delay:2.54s;--drift:24px">
-      <img src="pups/pup07.webp" alt="" width="118" height="118" loading="eager" decoding="async">
+    <span class="slot" style="left:22.9%;top:13.7%;--size:131px;--delay:4.85s;--drift:17px">
+      <img src="pups/pup07.webp" alt="" width="131" height="131" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:68.3%;top:31.8%;--size:102px;--delay:2.97s;--drift:24px">
-      <img src="pups/pup08.webp" alt="" width="102" height="102" loading="eager" decoding="async">
+    <span class="slot" style="left:76.1%;top:83.3%;--size:90px;--delay:5.56s;--drift:21px">
+      <img src="pups/pup08.webp" alt="" width="90" height="90" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:35.0%;top:45.6%;--size:119px;--delay:3.44s;--drift:19px">
-      <img src="pups/pup09.webp" alt="" width="119" height="119" loading="eager" decoding="async">
+    <span class="slot" style="left:43.8%;top:13.7%;--size:99px;--delay:6.28s;--drift:21px">
+      <img src="pups/pup09.webp" alt="" width="99" height="99" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:30.9%;top:84.0%;--size:89px;--delay:3.61s;--drift:17px">
-      <img src="pups/pup01.webp" alt="" width="89" height="89" loading="eager" decoding="async">
+    <span class="slot" style="left:55.3%;top:13.7%;--size:101px;--delay:7.09s;--drift:-23px">
+      <img src="pups/pup01.webp" alt="" width="101" height="101" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:73.8%;top:66.3%;--size:93px;--delay:4.2s;--drift:-18px">
-      <img src="pups/pup02.webp" alt="" width="93" height="93" loading="eager" decoding="async">
+    <span class="slot" style="left:22.9%;top:83.3%;--size:125px;--delay:7.68s;--drift:-17px">
+      <img src="pups/pup02.webp" alt="" width="125" height="125" loading="eager" decoding="async">
     </span>
-    <span class="slot" style="left:29.6%;top:34.6%;--size:97px;--delay:4.65s;--drift:23px">
-      <img src="pups/pup03.webp" alt="" width="97" height="97" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:18.0%;top:84.0%;--size:128px;--delay:5.14s;--drift:18px">
-      <img src="pups/pup04.webp" alt="" width="128" height="128" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:32.5%;top:67.1%;--size:100px;--delay:5.26s;--drift:-17px">
-      <img src="pups/pup05.webp" alt="" width="100" height="100" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:74.5%;top:84.0%;--size:97px;--delay:5.69s;--drift:13px">
-      <img src="pups/pup06.webp" alt="" width="97" height="97" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:82.0%;top:52.0%;--size:113px;--delay:6.16s;--drift:-15px">
-      <img src="pups/pup07.webp" alt="" width="113" height="113" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:18.0%;top:46.4%;--size:112px;--delay:6.57s;--drift:-12px">
-      <img src="pups/pup08.webp" alt="" width="112" height="112" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:82.0%;top:84.0%;--size:89px;--delay:6.96s;--drift:-17px">
-      <img src="pups/pup09.webp" alt="" width="89" height="89" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:50.2%;top:84.0%;--size:124px;--delay:7.25s;--drift:-14px">
-      <img src="pups/pup01.webp" alt="" width="124" height="124" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:66.4%;top:47.5%;--size:98px;--delay:7.83s;--drift:-21px">
-      <img src="pups/pup02.webp" alt="" width="98" height="98" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:51.9%;top:16.0%;--size:98px;--delay:8.3s;--drift:-13px">
-      <img src="pups/pup03.webp" alt="" width="98" height="98" loading="eager" decoding="async">
-    </span>
-    <span class="slot" style="left:18.0%;top:72.6%;--size:107px;--delay:8.49s;--drift:22px">
-      <img src="pups/pup04.webp" alt="" width="107" height="107" loading="eager" decoding="async">
+    <span class="slot" style="left:77.1%;top:13.7%;--size:118px;--delay:8.51s;--drift:12px">
+      <img src="pups/pup03.webp" alt="" width="118" height="118" loading="eager" decoding="async">
     </span>
   </div>
 
